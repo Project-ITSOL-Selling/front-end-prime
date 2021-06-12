@@ -12,26 +12,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/customer',
   },
   {
-    title: 'City',
-    icon: 'layers-outline',
-    link: '/pages/city',
-  },
-  {
     title: 'Products',
     icon: 'shopping-bag-outline',
     link: '/pages/products',
   },
   {
-    title: 'Store',
-    icon: 'home-outline',
-    link: '/pages/store',
+    title: 'Category',
+    icon: 'shopping-bag-outline',
+    link: '/pages/categories',
   },
-  {
-    title: 'Order',
-    icon: 'shopping-cart-outline',
-    link: '/pages/order',
-  },
-
   // {
   //   title: 'Options',
   //   icon: 'cube-outline',

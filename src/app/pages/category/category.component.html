@@ -46,8 +46,7 @@
     </ng-container>
   </kt-portlet-header>
   <kt-portlet-body>
-    <p-table #ptable [value]="listProduct"
-             [paginator]="listProduct.length"
+    <p-table #ptable [value]="listCategory"
              [rows]="5"
              [totalRecords]="total"
              (onLazyLoad)="processSearchData()"
@@ -59,9 +58,6 @@
         <colgroup>
           <!--          <col class="size-1">-->
           <col class="size-2">
-          <col class="size-3">
-          <col class="size-3">
-          <col class="size-3">
           <col class="size-3">
           <col class="size-3">
           <col class="size-3">
@@ -80,22 +76,13 @@
             Action
           </th>
           <th class="text-center">
-            Product Name
+            Category Name
           </th>
           <th class="text-center">
             Image
           </th>
           <th class="text-center">
-            Category
-          </th>
-          <th class="text-center">
-            Supplier
-          </th>
-          <th class="text-center">
-            Price
-          </th>
-          <th class="text-center">
-            Quantity
+            Description
           </th>
         </tr>
       </ng-template>
@@ -118,15 +105,12 @@
           </td>
           <td class="text-center">{{item.name}}</td>
           <td class="text-center">{{item.image}}</td>
-          <td class="text-center">{{item.idCategory}}</td>
-          <td class="text-center">{{item.idSupplier}}</td>
-          <td class="text-center">{{item.price}}</td>
-          <td class="text-center">{{item.quantity }}</td>
+          <td class="text-center">{{item.description}}</td>
 
       </ng-template>
       <ng-template pTemplate="emptymessage">
         <tr class="empty_message">
-          <td [attr.colspan]="8" [innerHTML]="'message.noRecords' | translate">
+          <td [attr.colspan]="5" [innerHTML]="'message.noRecords' | translate">
           </td>
         </tr>
       </ng-template>

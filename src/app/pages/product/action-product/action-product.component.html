@@ -3,11 +3,11 @@
 <div class="modal-header">
   <h4 *ngIf="action" class="modal-title"
       style="font-size: medium">
-    {{'Thêm mới sản phẩm'}}
+    Thêm mới
   </h4>
   <h4 *ngIf="!action" class="modal-title"
       style="font-size: medium">
-    {{'Sửa'}}
+    Sửa
 
   </h4>
   <button type="button" class="btn shadow-none p-0" aria-label="Close" (click)="close()">
@@ -21,8 +21,8 @@
               <span class="p-float-label">
                 <input id="name"
                        type="text"
-                       formControlName="productName"
-                       [ngClass]="isSubmitted && f['productName'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                       formControlName="name"
+                       [ngClass]="isSubmitted && f['name'].errors?.required ? 'ng-dirty ng-invalid': ''"
                        class="form-control"
                        pInputText>
                 <label for="name" class="required">Tên sản phẩm</label>
@@ -31,56 +31,28 @@
         <!--            <input type="text" id="inputtext" pInputText >-->
         <!--            <label for="inputtext">InputText</label>-->
         <!--        </span>-->
-        <small *ngIf="isSubmitted && f['productName'].errors?.required"
+        <small *ngIf="isSubmitted && f['name'].errors?.required"
                class="p-error text-error p-pl-1">
           Tên sản phẩm là bắt buộc !
         </small>
       </div>
-<!--      <div class="p-md-6" style="padding: 1rem 0.5rem !important;">-->
-<!--        <span class="p-float-label p-input-icon-right">-->
-<!--          <i class="pi pi-calendar text-primary"></i>-->
-<!--          <p-calendar id="createdDate"-->
-<!--                      formControlName="createdDate"-->
-<!--                      [ngClass]="isSubmitted && f['createdDate'].errors?.required ? 'ng-dirty ng-invalid': ''"-->
-<!--                      styleClass="p-dropdown-custom">-->
-<!--          </p-calendar>-->
-<!--        <label for="createdDate" class="required">Thời gian</label>-->
-<!--              </span>-->
-<!--        <small *ngIf="isSubmitted && f['createdDate'].errors?.required"-->
-<!--               class="p-error text-error p-pl-1">-->
-<!--          Thời gian là bắt buộc !-->
-<!--        </small>-->
-<!--      </div>-->
-      <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
-              <span class="p-float-label">
-                <input id="size"
-                       type="text"
-                       formControlName="size"
-                       [ngClass]="isSubmitted && f['size'].errors?.required ? 'ng-dirty ng-invalid': ''"
-                       class="form-control"
-                       pInputText>
-                <label for="size" class="required">Kích cỡ </label>
-              </span>
-        <small *ngIf="isSubmitted && f['size'].errors?.required"
-               class="p-error text-error p-pl-1">
-          Kích cỡ là bắt buộc !
-        </small>
-      </div>
-      <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
-              <span class="p-float-label">
-                <input id="weight"
-                       type="number"
-                       formControlName="weight"
-                       [ngClass]="isSubmitted && f['weight'].errors?.required ? 'ng-dirty ng-invalid': ''"
-                       class="form-control"
-                       pInputText>
-                <label for="weight" class="required">Khối lượng </label>
-              </span>
-        <small *ngIf="isSubmitted && f['weight'].errors?.required"
-               class="p-error text-error p-pl-1">
-          Khối lượng là bắt buộc !
-        </small>
-      </div>
+      <!--      <div class="p-md-6" style="padding: 1rem 0.5rem !important;">-->
+      <!--        <span class="p-float-label p-input-icon-right">-->
+      <!--          <i class="pi pi-calendar text-primary"></i>-->
+      <!--          <p-calendar id="createdDate"-->
+      <!--                      formControlName="createdDate"-->
+      <!--                      [ngClass]="isSubmitted && f['createdDate'].errors?.required ? 'ng-dirty ng-invalid': ''"-->
+      <!--                      styleClass="p-dropdown-custom">-->
+      <!--          </p-calendar>-->
+      <!--        <label for="createdDate" class="required">Thời gian</label>-->
+      <!--              </span>-->
+      <!--        <small *ngIf="isSubmitted && f['createdDate'].errors?.required"-->
+      <!--               class="p-error text-error p-pl-1">-->
+      <!--          Thời gian là bắt buộc !-->
+      <!--        </small>-->
+      <!--      </div>-->
+
+
       <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
               <span class="p-float-label">
                 <input id="price"
@@ -101,17 +73,37 @@
 <!--                <i [hidden]="isLoadCategory" class="pi pi-spin pi-spinner"></i>-->
                 <p-dropdown
                   id="store"
-                  formControlName="guidStore"
+                  formControlName="idCategory"
                   [styleClass]="'p-dropdown-custom'"
-                  [ngClass]="isSubmitted && f['guidStore'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                  [ngClass]="isSubmitted && f['idCategory'].errors?.required ? 'ng-dirty ng-invalid': ''"
                   [autoDisplayFirst]="false"
-                  [options]="lstStore"
-                  optionValue="guid"
-                  optionLabel="nameStore">
+                  [options]="lstCategory"
+                  [optionValue]="'id'"
+                  optionLabel="name">
                 </p-dropdown>
-                <label for="store" class="required">{{'Tên cửa hàng' }}</label>
+                <label for="store" class="required">Loại sản phẩm</label>
               </span>
-        <small *ngIf="isSubmitted && f['guidStore'].errors?.required"
+        <small *ngIf="isSubmitted && f['idCategory'].errors?.required"
+               class="p-error text-error p-pl-1">
+          Tên cửa hàng là bắt buộc !
+        </small>
+      </div>
+      <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label p-input-icon-right">
+<!--                <i [hidden]="isLoadCategory" class="pi pi-spin pi-spinner"></i>-->
+                <p-dropdown
+                  id="supllier"
+                  formControlName="idSupplier"
+                  [styleClass]="'p-dropdown-custom'"
+                  [ngClass]="isSubmitted && f['idSupplier'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                  [autoDisplayFirst]="false"
+                  [options]="lstSupplier"
+                  [optionValue]="'id'"
+                  optionLabel="name">
+                </p-dropdown>
+                <label for="store" class="required">Tên cửa hàng</label>
+              </span>
+        <small *ngIf="isSubmitted && f['idCategory'].errors?.required"
                class="p-error text-error p-pl-1">
           Tên cửa hàng là bắt buộc !
         </small>
@@ -137,13 +129,15 @@
                 <input id="description"
                        type="text"
                        class="form-control"
-                       formControlName="description"
+                       formControlName="image"
                        pInputText>
                 <label for="description">Thông tin sản phẩm</label>
               </span>
       </div>
     </div>
+
   </form>
+
 </div>
 
 <div class="modal-footer pr-5">

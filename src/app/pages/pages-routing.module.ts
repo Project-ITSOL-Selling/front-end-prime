@@ -29,30 +29,20 @@ const routes: Routes = [{
         .then(m => m.MiscellaneousModule),
     },
     {
-      path: 'customer',
-      loadChildren: () => import('./customer/customer.module')
-        .then(m => m.CustomerModule),
-    },
-    {
-      path: 'city',
-      loadChildren: () => import('./city/city.module')
-        .then(m => m.CityModule),
-    },
-    {
       path: 'products',
       loadChildren: () => import('./product/product.module')
         .then(m => m.ProductModule),
     },
     {
-      path: 'store',
-      loadChildren: () => import('./store/store.module')
-        .then(m => m.StoreModule),
+      path: 'categories',
+      loadChildren: () => import('./category/category.module')
+        .then(m => m.CategoryModule),
     },
-    {
-      path: 'order',
-      loadChildren: () => import('./orders/orders.module')
-        .then(m => m.OrdersModule),
-    },
+    // {
+    //   path: 'store',
+    //   loadChildren: () => import('./store/store.module')
+    //     .then(m => m.StoreModule),
+    // },
 
     // {
     //   path: 'category',

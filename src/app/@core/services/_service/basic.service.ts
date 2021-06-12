@@ -68,8 +68,8 @@ export class BasicService {
     return this.http.get(url);
   }
 
-  public statistical(data: any): Observable<any> {
-    const url = `${this.serviceUrl}/statistical`;
-    return this.http.post(url, CommonUtils.convertFormFile(data));
-  }
+  // public statistical(data: any): Observable<any> {
+  //   const url = `${this.serviceUrl}/statistical`;
+  //   return this.http.post(url, CommonUtils.convertFormFile(data));
+  // }
 }

@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {CityService} from '../../../@core/services/_service/city.service';
 import {ProductService} from '../../../@core/services/_service/product.service';
 import {StoreService} from '../../../@core/services/_service/store.service';
+import {CategoriesService} from '../../../@core/services/_service/categories.service';
 
 @Component({
   selector: 'ngx-action-product',
@@ -20,7 +21,19 @@ export class ActionProductComponent implements OnInit {
   @Input() product: any;
   isSubmitted: boolean = false;
   form: FormGroup;
-  lstStore: any[] = [];
+  lstCategory: any[] = [];
+  lstSupplier: any[] = [
+    {
+      id: '1',
+      name: 'Bùi Minh Tuấn',
+    }, {
+      id: '2',
+      name: 'Long Trần',
+    }, {
+      id: '3 ',
+      name: 'Nguyễn Hiệp',
+    },
+  ];
 
   constructor(
     private modal: NgbActiveModal,
@@ -29,39 +42,42 @@ export class ActionProductComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private translate: TranslateService,
     private service: ProductService,
-    private storeService: StoreService,
+    private categoryService: CategoriesService,
   ) {
   }
 
   ngOnInit(): void {
     this.initForm();
-    this.findAll();
+    this.getListCategory();
   }
 
   initForm() {
     if (this.action) {
       this.form = this.fb.group({
-        productName: ['', Validators.required],
-        description: [''],
-        size: ['', Validators.required],
-        weight: ['', Validators.required],
+        name: ['', Validators.required],
+        image: [''],
+        idCategory: ['', Validators.required],
+        idSupplier: ['', Validators.required],
         price: ['', Validators.required],
-        guidStore: ['', Validators.required],
         quantity: ['', Validators.required],
       });
     } else {
       this.form = this.fb.group({
         id: [this.product.id],
-        guid: [this.product.guid],
-        productName: [this.product.productName, Validators.required],
-        description: [this.product.description],
-        size: [this.product.size, Validators.required],
-        weight: [this.product.weight, Validators.required],
+        name: [this.product.name, Validators.required],
+        image: [this.product.image],
+        idCategory: [this.product.idCategory, Validators.required],
+        idSupplier: [this.product.idSupplier, Validators.required],
         price: [this.product.price, Validators.required],
-        guidStore: [this.product.guidStore, Validators.required],
         quantity: [this.product.quantity, Validators.required],
       });
     }
+  }
+
+  getListCategory() {
+    this.categoryService.getListCategory().subscribe(res => {
+      this.lstCategory = res.data;
+    });
   }
 
   close() {
@@ -72,17 +88,17 @@ export class ActionProductComponent implements OnInit {
     return this.form.controls;
   }
 
-  findAll() {
-    this.storeService.findAllData().subscribe(res => {
-      this.lstStore = res.data;
-    });
-  }
+  // findAll() {
+  //   this.storeService.findAllData().subscribe(res => {
+  //     this.lstStore = res.data;
+  //   });
+  // }
 
   processSaveOrUpdate() {
     this.isSubmitted = true;
     if (this.form.valid) {
       this.spinner.show();
-      this.service.saveOrUpdate(this.form.value).subscribe(res => {
+      this.service.saveOrUpdateOverride(this.form.value).subscribe(res => {
         this.spinner.hide();
         if (res.code === 'success') {
           this.modal.close('success');

@@ -1,29 +1,28 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CityComponent} from './city.component';
 import {RouterModule, Routes} from '@angular/router';
+import {CategoryComponent} from './category.component';
 import {PortletModule} from '../../shares/portlet/portlet.module';
 import {TooltipModule} from 'primeng/tooltip';
 import {TableModule} from 'primeng/table';
 import {TranslateModule} from '@ngx-translate/core';
-import {DeleteCityComponent} from './delete-city/delete-city.component';
-import {ActionCityComponent} from './action-city/action-city.component';
+import {DeleteCategoryComponent} from './delete-category/delete-category.component';
+import {ActionCategoryComponent} from './action-category/action-category.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
-import {InputTextModule} from 'primeng/inputtext';
 import {ReactiveFormsModule} from '@angular/forms';
-import {ButtonModule} from 'primeng/button';
-import {CalendarModule} from 'primeng/calendar';
-import {AutoCompleteModule} from 'primeng/autocomplete';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextModule} from 'primeng/inputtext';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: CityComponent,
+    component: CategoryComponent,
   },
 ];
 
 @NgModule({
-  declarations: [CityComponent, DeleteCityComponent, ActionCityComponent],
+  declarations: [CategoryComponent, DeleteCategoryComponent, ActionCategoryComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -32,12 +31,11 @@ const routes: Routes = [
     TableModule,
     TranslateModule,
     NgxSpinnerModule,
-    InputTextModule,
     ReactiveFormsModule,
-    ButtonModule,
-    CalendarModule,
-    AutoCompleteModule,
+    DropdownModule,
+    InputTextModule,
   ],
 })
-export class CityModule {
+
+export class CategoryModule {
 }

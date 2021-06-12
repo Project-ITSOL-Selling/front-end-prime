@@ -4,8 +4,6 @@ import {CityService} from '../../@core/services/_service/city.service';
 import {DEFAULT_MODAL_OPTIONS} from '../../@core/app-config';
 import {ActionProductComponent} from './action-product/action-product.component';
 import {ProductService} from '../../@core/services/_service/product.service';
-import {ActionCityComponent} from '../city/action-city/action-city.component';
-import {DeleteCityComponent} from '../city/delete-city/delete-city.component';
 import {DeleteProductComponent} from './delete-product/delete-product.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NgxSpinnerService} from 'ngx-spinner';
@@ -32,27 +30,27 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.processSearchData(event);
-    this.getNameDepartment();
-    this.initForm();
+    this.processSearchData();
+    // this.getNameDepartment();
+    // this.initForm();
   }
 
   get f() {
     return this.formSearch.controls;
   }
 
-  initForm() {
-    this.formSearch = this.fb.group({
-      productName: [''],
-      nameStore: [''],
-    });
-  }
+  // initForm() {
+  //   this.formSearch = this.fb.group({
+  //     productName: [''],
+  //     nameStore: [''],
+  //   });
+  // }
 
-  getNameDepartment() {
-    this.service.findAllData().subscribe(res => {
-      this.lstDataSearch = res.data;
-    });
-  }
+  // getNameDepartment() {
+  //   this.service.findAllData().subscribe(res => {
+  //     this.lstDataSearch = res.data;
+  //   });
+  // }
 
   processEdit(item: any) {
     const modalRef = this.modal.open(ActionProductComponent, DEFAULT_MODAL_OPTIONS);
@@ -66,15 +64,14 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  processSearch(event?: any) {
-    // @ts-ignore
-    this.processSearchData(event);
-  }
+  // processSearch(event?: any) {
+  //   // @ts-ignore
+  //   this.processSearchData(event);
+  // }
 
-  processSearchData(event?: any) {
-    this.service.search(null, event).subscribe(res => {
+  processSearchData() {
+    this.service.getListProdut().subscribe(res => {
       this.listProduct = res.data;
-      this.total = res.recordsTotal;
     });
   }
 

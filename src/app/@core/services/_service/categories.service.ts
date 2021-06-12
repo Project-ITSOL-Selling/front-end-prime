@@ -11,7 +11,7 @@ import {Category} from '../../utils/category';
   providedIn: 'root',
 })
 export class CategoriesService extends BasicService {
-  private readonly baseUrl = `${environment.apiUrl}categories`;
+  private readonly baseUrl = `${environment.apiUrl}category/`;
 
   constructor(
     public http: HttpClient,
@@ -19,15 +19,16 @@ export class CategoriesService extends BasicService {
     super('baseUrl', 'categories', http);
   }
 
-  findAllCategories(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/find_all`);
+  getListCategory(): Observable<any> {
+    return this.http.get(`${this.baseUrl}getlistcategory`);
   }
 
-  deleteCategories(data: any): Observable<any> {
-    const formData = new FormData();
-    for (let i = 0; i < data.length; i++) {
-      formData.append('categories', data[i]);
-    }
-    return this.http.post(`${this.baseUrl}/delete`, formData);
+  createCategory(form: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}createcategory`, form);
   }
+
+  deleteCategoryById(id: any): Observable<any> {
+    return this.http.delete(`${this.baseUrl}deletecategory/${id}`, id);
+  }
+
 }
