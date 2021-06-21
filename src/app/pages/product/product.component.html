@@ -2,35 +2,25 @@
   <kt-portlet-header [icon]="'pi pi-search'"
                      [title]="'title.search' | translate ">
   </kt-portlet-header>
-  <!--  <kt-portlet-body>-->
-  <!--    <form [formGroup]="formSearch">-->
-  <!--      <div class="p-fluid p-grid">-->
-  <!--        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">-->
-  <!--              <span class="p-float-label">-->
-  <!--                <input id="productName"-->
-  <!--                       type="text"-->
-  <!--                       class="form-control"-->
-  <!--                       formControlName="productName"-->
-  <!--                       pInputText>-->
-  <!--                <label for="productName">Tên sản phẩm</label>-->
-  <!--              </span>-->
-  <!--        </div>-->
-  <!--        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">-->
-  <!--              <span class="p-float-label">-->
-  <!--                <input id="nameStore"-->
-  <!--                       type="text"-->
-  <!--                       class="form-control"-->
-  <!--                       formControlName="nameStore"-->
-  <!--                       pInputText>-->
-  <!--                <label for="nameStore">Tên cửa hàng</label>-->
-  <!--              </span>-->
-  <!--        </div>-->
+    <kt-portlet-body>
+      <form [formGroup]="formSearch">
+        <div class="p-fluid p-grid">
+          <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
+                <span class="p-float-label">
+                  <input id="name"
+                         type="text"
+                         class="form-control"
+                         formControlName="name"
+                         pInputText>
+                  <label for="name">Tên sản phẩm</label>
+                </span>
+          </div>
 
-  <!--      </div>-->
-  <!--    </form>-->
-  <!--    <button type="button" class="btn btn-info"-->
-  <!--            (click)="processSearch()">{{'title.button.search' | translate}}</button>-->
-  <!--  </kt-portlet-body>-->
+        </div>
+      </form>
+      <button type="button" class="btn btn-info"
+              (click)="processSearch()">Tìm kiếm</button>
+    </kt-portlet-body>
 </kt-portlet>
 <kt-portlet>
   <kt-portlet-header [icon]="'pi pi-align-justify'"
@@ -118,7 +108,7 @@
           </td>
           <td class="text-center">{{item.name}}</td>
           <td class="text-center">{{item.image}}</td>
-          <td class="text-center">{{item.idCategory}}</td>
+          <td class="text-center">{{item.nameCategory}}</td>
           <td class="text-center">{{item.idSupplier}}</td>
           <td class="text-center">{{item.price}}</td>
           <td class="text-center">{{item.quantity }}</td>

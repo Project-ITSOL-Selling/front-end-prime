@@ -30,9 +30,10 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.processSearchData();
+    // this.processSearchData();
     // this.getNameDepartment();
-    // this.initForm();
+    this.initForm();
+    this.getDataSearch();
   }
 
   get f() {
@@ -51,6 +52,22 @@ export class ProductComponent implements OnInit {
   //     this.lstDataSearch = res.data;
   //   });
   // }
+  processSearch(event?: any) {
+    // @ts-ignore
+    this.processSearchData(event);
+  }
+
+  initForm() {
+    this.formSearch = this.fb.group({
+      name: [''],
+    });
+  }
+
+  getDataSearch() {
+    this.service.getListProdut().subscribe(res => {
+      this.lstDataSearch = res.data;
+    });
+  }
 
   processEdit(item: any) {
     const modalRef = this.modal.open(ActionProductComponent, DEFAULT_MODAL_OPTIONS);
@@ -69,9 +86,12 @@ export class ProductComponent implements OnInit {
   //   this.processSearchData(event);
   // }
 
-  processSearchData() {
-    this.service.getListProdut().subscribe(res => {
+  processSearchData(event?: any) {
+    this.spinner.show();
+    this.service.searchProduct(this.formSearch.value, event).subscribe(res => {
+      this.spinner.hide();
       this.listProduct = res.data;
+      this.total = res.recordsTotal;
     });
   }
 

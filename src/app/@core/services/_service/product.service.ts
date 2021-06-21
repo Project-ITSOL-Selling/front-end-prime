@@ -30,6 +30,17 @@ export class ProductService extends BasicService {
     return this.http.post(`${this.baseUrl}createproduct`, form);
   }
 
+  searchProduct(data?: any, event?: any): Observable<any> {
+    if (!event) {
+      this.credentials = Object.assign({}, data);
+    }
+    const searchData = CommonUtils.convertData(this.credentials);
+    if (event) {
+      searchData._search = event;
+    }
+    const buildParams = CommonUtils.buildParams(searchData);
+    return this.http.get(`${this.baseUrl}search`, {params: buildParams});
+  }
 
   // saveOrUpdate(form: any): Observable<DataResponse> {
   //   const formData = CommonUtils.convertFormFile(form);
