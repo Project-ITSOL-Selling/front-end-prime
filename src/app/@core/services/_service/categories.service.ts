@@ -31,4 +31,16 @@ export class CategoriesService extends BasicService {
     return this.http.delete(`${this.baseUrl}deletecategory/${id}`, id);
   }
 
+  searchCategory(data?: any, event?: any): Observable<any> {
+    if (!event) {
+      this.credentials = Object.assign({}, data);
+    }
+    const searchData = CommonUtils.convertData(this.credentials);
+    if (event) {
+      searchData._search = event;
+    }
+    const buildParams = CommonUtils.buildParams(searchData);
+    return this.http.get(`${this.baseUrl}search`, {params: buildParams});
+  }
+
 }

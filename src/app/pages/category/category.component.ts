@@ -20,6 +20,7 @@ export class CategoryComponent implements OnInit {
   listCategory: any[] = [];
   total: any;
   lstDel: any[] = [];
+  lstDataSearch: any[] = [];
 
 
   constructor(
@@ -31,7 +32,25 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.processSearchData();
+    this.initForm();
+    this.getDataSearch();
+  }
+
+  initForm() {
+    this.formSearch = this.fb.group({
+      name: [''],
+    });
+  }
+
+  getDataSearch() {
+    this.service.getListCategory().subscribe(res => {
+      this.lstDataSearch = res.data;
+    });
+  }
+
+  processSearch(event?: any) {
+    // @ts-ignore
+    this.processSearchData(event);
   }
 
   processEdit(item: any) {
@@ -46,9 +65,12 @@ export class CategoryComponent implements OnInit {
     );
   }
 
-  processSearchData() {
-    this.service.getListCategory().subscribe(res => {
+  processSearchData(event?: any) {
+    this.spinner.show();
+    this.service.searchCategory(this.formSearch.value, event).subscribe(res => {
+      this.spinner.hide();
       this.listCategory = res.data;
+      this.total = res.recordsTotal;
     });
   }
 
