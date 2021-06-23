@@ -1,0 +1,43 @@
+
+<div class="container">
+  <h1>Update Supplier</h1>
+  <form autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.id.errors}">
+      <label for="name">Id hide:</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <span *ngIf="isSubmit && f.id.errors" class="alert alert-danger"></span>
+    </div> -->
+  
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.name.errors }">
+      <label for="name">Customer Name:</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <span *ngIf="isSubmit && f.name.errors" class="alert alert-danger">Name is required!</span>
+    </div>
+  
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.address.errors }">
+      <label for="name">Customer address:</label>
+      <input type="text" class="form-control" id="address" formControlName="address">
+      <span *ngIf="isSubmit && f.address.errors" class="alert alert-danger">Address is required!</span>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.description.errors }">
+      <label for="name">Customer description:</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+      <span *ngIf="isSubmit && f.description.errors" class="alert alert-danger">Description is required!</span>
+    </div>
+    
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.logo.errors }">
+      <label for="name">Logo</label>
+      
+      <img  src="./././assets/images/supplier/{{f.logo.value}}" alt="" height="150px" >
+      <input type="file"  (change)="onFileSelected($event)" > 
+      <span *ngIf="isSubmit && f.logo.errors" class="help-block">Logo is required!</span>
+      
+    </div>
+    
+    <button type="submit" class="btn btn-success" > Create</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+  </form>
+</div>
+
+

@@ -32,6 +32,12 @@ import {ToastrModule} from 'ngx-toastr';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ListSupplierComponent } from './supplier/component/ListSupplier/ListSupplier.component';
+import { ListCustomerComponent } from './customer/component/listCustomer/listCustomer.component';
+import { CreateSupplierComponent } from './supplier/component/create-supplier/create-supplier.component';
+import { CreateCustomerComponent } from './customer/component/create-customer/create-customer.component';
+import { UpdateCustomerComponent } from './customer/component/update-customer/update-customer.component';
+import { EditSupplierComponent } from './supplier/component/Edit-Supplier/Edit-Supplier.component';
 
 const configToast: any = {
   timeOut: 2000,
@@ -48,7 +54,15 @@ export function httpTranslateLoader(http: HttpClient) {
 
 // @ts-ignore
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    ListSupplierComponent,
+    ListCustomerComponent,
+    EditSupplierComponent,
+    CreateSupplierComponent,
+    CreateCustomerComponent,
+    UpdateCustomerComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
