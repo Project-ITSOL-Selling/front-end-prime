@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   public createUser(form: any): Observable<DataResponse> {
-    return this.http.post(`${this.baseUrl}create-user`, form);
+    return this.http.post(`${environment.apiUrl}user/register`, form);
   }
 
   public login(form: any): Observable<DataResponse> {

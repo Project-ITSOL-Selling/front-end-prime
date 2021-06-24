@@ -13,14 +13,14 @@ import {AuthGuard} from './@core/services/_service/auth/auth.guard';
 export const routes: Routes = [
   {
     path: 'pages',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
-  // {
-  //   path: 'auth',
-  //   loadChildren: () => import('./auth/auth.module').then(m => m.NgxAuthModule),
-  // },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.NgxAuthModule),
+  },
   { path: '', redirectTo: 'pages', pathMatch: 'full'},
   { path: '**', redirectTo: 'error/404' },
 ];

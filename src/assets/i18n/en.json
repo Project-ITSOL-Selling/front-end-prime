@@ -33,7 +33,9 @@
   "title.text.register.service": "Terms of services",
   "title.text.register.privacy": "Privacy Policy",
   "title.email.address": "Email Address",
+  "title.username.address": "Username",
   "title.email.required": "Email is required",
+  "title.username.required": "Username is required",
   "title.password.name": "Password",
   "title.password.required": "Password is Required",
   "title.login.submit": "Login",
@@ -70,7 +72,7 @@
   "sidebar.customer": "Customer",
   "sidebar.store": "Store",
   "sidebar.city": "Representative Office",
-  "sidebar.order": "Order",
+  "sidebar.bill-order": "Order",
 
   "title.placeholder.uploadFile": "Upload file",
 

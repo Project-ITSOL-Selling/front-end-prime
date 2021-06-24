@@ -34,7 +34,9 @@
   "title.text.register.service": "Điều khoản dịch vụ",
   "title.text.register.privacy": "Chính sách bảo mật",
   "title.email.address": "Email",
+  "title.username.address": "Username",
   "title.email.required": "Email không được để trống",
+  "title.username.required": "Tên tài khoản không được để trống",
   "title.password.name": "Mật khẩu",
   "title.password.required": "Mật khẩu không được để trống",
   "title.login.submit": "Đăng nhập",
@@ -71,7 +73,7 @@
   "sidebar.topping": "Topping",
   "sidebar.customer": "Khách hàng",
   "sidebar.city": "Văn phòng đại diện",
-  "sidebar.order": "Đơn đặt hàng",
+  "sidebar.bill-order": "Đơn đặt hàng",
   "title.placeholder.uploadFile": "Tải tệp lên",
 
 

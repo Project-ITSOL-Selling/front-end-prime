@@ -3,15 +3,15 @@
   <form [formGroup]="form">
     <div class="row px-3 mt-3">
       <label class="mb-0">
-        <h6 class="mb-0 text-sm required">{{'title.email.address' | translate}}</h6>
+        <h6 class="mb-0 text-sm required">{{'title.username.address' | translate}}</h6>
       </label>
-      <input type="email"
-             formControlName="email"
+      <input type="username"
+             formControlName="username"
              class="mb-1"
              name="email" placeholder="john.doe@email.com">
-      <small *ngIf="f['email'].errors?.required && isSubmitted"
+      <small *ngIf="f['username'].errors?.required && isSubmitted"
              class="text-danger">
-        {{'title.email.required' | translate}}
+        {{'title.username.required' | translate}}
       </small>
     </div>
     <div class="row px-3 my-4">

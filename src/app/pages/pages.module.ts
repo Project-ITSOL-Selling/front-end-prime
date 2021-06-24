@@ -17,6 +17,7 @@ import {TableModule} from 'primeng/table';
 import {ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import { CategoryComponent } from './category/category.component';
+import { BillOrderComponent } from './bill-order/bill-order.component';
 
 
 // AOT compilation support

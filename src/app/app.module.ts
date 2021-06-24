@@ -77,11 +77,11 @@ export function httpTranslateLoader(http: HttpClient) {
   ],
   bootstrap: [AppComponent],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: RequestInterceptor,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit {
         if (res.code === 'success') {
           // console.log(res);
           this.spinner.hide();
-          this.tokenService.setToken(res.data.jwt);
+          this.tokenService.setToken(res.data);
           this.router.navigate(['']);
         } else {
           this.toastr.error(res.message);

@@ -19,16 +19,6 @@ const routes: Routes = [{
         .then(m => m.LayoutModule),
     },
     {
-      path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
-      path: 'miscellaneous',
-      loadChildren: () => import('./miscellaneous/miscellaneous.module')
-        .then(m => m.MiscellaneousModule),
-    },
-    {
       path: 'products',
       loadChildren: () => import('./product/product.module')
         .then(m => m.ProductModule),
@@ -38,17 +28,11 @@ const routes: Routes = [{
       loadChildren: () => import('./category/category.module')
         .then(m => m.CategoryModule),
     },
-    // {
-    //   path: 'store',
-    //   loadChildren: () => import('./store/store.module')
-    //     .then(m => m.StoreModule),
-    // },
-
-    // {
-    //   path: 'category',
-    //   loadChildren: () => import('./category/category.module')
-    //     .then(m => m.CategoryModule),
-    // },
+    {
+      path: 'bill_order',
+      loadChildren: () => import('./bill-order/bill-order.module')
+        .then(m => m.BillOrderModule),
+    },
     {
       path: '',
       redirectTo: 'dashboard',
