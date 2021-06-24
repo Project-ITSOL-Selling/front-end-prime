@@ -36,27 +36,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'shopping-bag-outline',
     link: '/pages/supplier',
   },
-  // {
-  //   title: 'Options',
-  //   icon: 'cube-outline',
-  //   children: [
-  //     {
-  //       title: 'Size',
-  //       icon: 'activity-outline',
-  //       link: '/pages/options/size',
-  //     },
-  //     {
-  //       title: 'Ice',
-  //       icon: 'droplet-outline',
-  //       link: '/pages/options/ice',
-  //     },
-  //     {
-  //       title: 'Topping',
-  //       icon: 'grid-outline',
-  //       link: '/pages/options/topping',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Customer',
+    icon: 'shopping-bag-outline',
+    link: '/pages/customer',
+  },
   {
     title: 'FEATURES',
     group: true,

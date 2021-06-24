@@ -73,7 +73,8 @@
   "sidebar.store": "Store",
   "sidebar.city": "Representative Office",
   "sidebar.bill-order": "Order",
-
+  "sidebar.bill-detail": "Bill detail",
+  "sidebar.supplier": "Supplier",
   "title.placeholder.uploadFile": "Upload file",
 
 

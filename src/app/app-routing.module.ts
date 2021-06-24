@@ -9,12 +9,6 @@ import {
   NbResetPasswordComponent,
 } from '@nebular/auth';
 import {AuthGuard} from './@core/services/_service/auth/auth.guard';
-import { ListSupplierComponent } from './pages/supplier/ListSupplier/ListSupplier.component';
-import { EditSupplierComponent } from './pages/supplier/Edit-Supplier/Edit-Supplier.component';
-import { CreateSupplierComponent } from './pages/supplier/create-supplier/create-supplier.component';
-import { ListCustomerComponent } from './customer/component/listCustomer/listCustomer.component';
-import { CreateCustomerComponent } from './customer/component/create-customer/create-customer.component';
-import { UpdateCustomerComponent } from './customer/component/update-customer/update-customer.component';
 
 export const routes: Routes = [
   {
@@ -29,30 +23,6 @@ export const routes: Routes = [
   },
   { path: '', redirectTo: 'pages', pathMatch: 'full'},
   { path: '**', redirectTo: 'error/404' },
-  {
-    path: 'supplier',
-    component: ListSupplierComponent,
-  },
-  {
-    path: 'supplier/:id',
-    component: EditSupplierComponent,
-  },
-  {
-    path: 'create-supplier',
-    component: CreateSupplierComponent,
-  },
-  {
-    path: 'customer',
-    component: ListCustomerComponent,
-  },
-  {
-    path: 'create-customer',
-    component: CreateCustomerComponent,
-  },
-  {
-    path: 'update-customer/:id',
-    component: UpdateCustomerComponent,
-  },
 ];
 
 const config: ExtraOptions = {

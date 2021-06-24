@@ -1,45 +1,19 @@
-<!--<kt-portlet>-->
-<!--  <kt-portlet-header [icon]="'pi pi-search'"-->
-<!--                     [title]="'Search' ">-->
-<!--  </kt-portlet-header>-->
-<!--  <kt-portlet-body>-->
-<!--    <form [formGroup]="formSearch">-->
-<!--      <div class="p-fluid p-grid">-->
-<!--        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">-->
-<!--                <span class="p-float-label">-->
-<!--                  <input id="price"-->
-<!--                         type="text"-->
-<!--                         class="form-control"-->
-<!--                         formControlName="price"-->
-<!--                         pInputText>-->
-<!--                  <label for="price">Giá sản phẩm</label>-->
-<!--                </span>-->
-<!--        </div>-->
-
-<!--      </div>-->
-<!--    </form>-->
-<!--    <button type="button" class="btn btn-info"-->
-<!--            (click)="processSearch()">Tìm kiếm-->
-<!--    </button>-->
-<!--  </kt-portlet-body>-->
-<!--</kt-portlet>-->
 <kt-portlet>
   <kt-portlet-header [icon]="'pi pi-align-justify'"
                      [class]="'d-flex flex-row'"
-                     [title]="'Danh sách hóa đơn' ">
+                     [title]="'Danh sách Nhà cung cấp'">
     <ng-container ktPortletTools>
-      <button class="btn btn-success" (click)="processSave()"
+      <button class="btn btn-success" (click)="processSave($event)"
               tooltipPosition="bottom"
               pTooltip="{{'Thêm'}}">
-
         <i class="pi pi-plus"></i>
       </button>
     </ng-container>
   </kt-portlet-header>
   <kt-portlet-body>
-    <p-table #ptable [value]="listBillOrder"
-             [paginator]="listBillOrder.length"
-             [rows]="7"
+    <p-table #ptable [value]="listSupplier"
+             [paginator]="listSupplier.length"
+             [rows]="5"
              [totalRecords]="total"
              (onLazyLoad)="processSearchData()"
              dataKey="id"
@@ -49,9 +23,8 @@
       <ng-template pTemplate="colgroup" let-columns>
         <colgroup>
           <!--          <col class="size-1">-->
+          <col class="size-1">
           <col class="size-2">
-          <col class="size-3">
-          <col class="size-3">
           <col class="size-3">
           <col class="size-3">
           <col class="size-3">
@@ -70,19 +43,16 @@
             Action
           </th>
           <th class="text-center">
-            Code Bill
+            Nhà cung cấp
           </th>
           <th class="text-center">
-            Price
+            Logo
           </th>
           <th class="text-center">
-            Quantity
+            Discription
           </th>
           <th class="text-center">
-            Description
-          </th>
-          <th class="text-center">
-            Created Date
+            Address
           </th>
         </tr>
       </ng-template>
@@ -103,16 +73,17 @@
                pTooltip="{{'Xóa' }}">
             </i>
           </td>
-          <td class="text-center">{{item.codeBill}}</td>
-          <td class="text-center">{{item.price}}</td>
-          <td class="text-center">{{item.quantity}}</td>
+          <td class="text-center">{{item.name}}</td>
+          <td class="text-center">
+            <img style="width: 100px" [src]="item.logo" alt="">
+          </td>
+          <td class="text-center">{{item.address}}</td>
           <td class="text-center">{{item.description}}</td>
-          <td class="text-center">{{item.createdDate|date:'yyyy-MM-dd'}}</td>
 
       </ng-template>
       <ng-template pTemplate="emptymessage">
         <tr class="empty_message">
-          <td [attr.colspan]="7" [innerHTML]="'message.noRecords' ">
+          <td [attr.colspan]="6" [innerHTML]="'message.noRecords' | translate">
           </td>
         </tr>
       </ng-template>

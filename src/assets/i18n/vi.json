@@ -74,6 +74,8 @@
   "sidebar.customer": "Khách hàng",
   "sidebar.city": "Văn phòng đại diện",
   "sidebar.bill-order": "Đơn đặt hàng",
+  "sidebar.bill-detail": "Chi tiết đặt hàng",
+  "sidebar.supplier": "Nhà cung cấp",
   "title.placeholder.uploadFile": "Tải tệp lên",
 
 

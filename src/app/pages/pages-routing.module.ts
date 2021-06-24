@@ -44,6 +44,11 @@ const routes: Routes = [{
         .then(m => m.SupplierModule),
     },
     {
+      path: 'customer',
+      loadChildren: () => import('./customer/customer.module')
+        .then(m => m.CustomerModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
