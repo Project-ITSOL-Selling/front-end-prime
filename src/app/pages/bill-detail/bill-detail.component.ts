@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {DEFAULT_MODAL_OPTIONS} from '../../@core/app-config';
-import {BillOrderService} from '../../@core/services/_service/bill-order.service';
-import {ActionBillOrderComponent} from './action-bill-order/action-bill-order/action-bill-order.component';
-import {DeleteBillOrderComponent} from './delete-bill-order/delete-bill-order.component';
+import {BillDetailService} from '../../@core/services/_service/bill-detail.service';
+import {ActionBillDetailComponent} from './action-bill-detail/action-bill-detail.component';
+import {DeleteBillDetailComponent} from './delete-bill-detail/delete-bill-detail.component';
 
 @Component({
-  selector: 'ngx-bill-order',
-  templateUrl: './bill-order.component.html',
-  styleUrls: ['./bill-order.component.scss'],
+  selector: 'ngx-bill-detail',
+  templateUrl: './bill-detail.component.html',
+  styleUrls: ['./bill-detail.component.scss'],
 })
-export class BillOrderComponent implements OnInit {
+export class BillDetailComponent implements OnInit {
   formSearch: FormGroup;
-  listBillOrder: any[] = [];
+  listBillDetail: any[] = [];
   total: any;
   lstDel: any[] = [];
   lstDataSearch: any[] = [];
@@ -23,7 +23,7 @@ export class BillOrderComponent implements OnInit {
   constructor(
     private modal: NgbModal,
     private fb: FormBuilder,
-    private service: BillOrderService,
+    private service: BillDetailService,
     private spinner: NgxSpinnerService,
   ) {
   }
@@ -50,9 +50,9 @@ export class BillOrderComponent implements OnInit {
   // }
 
   processEdit(item: any) {
-    const modalRef = this.modal.open(ActionBillOrderComponent, DEFAULT_MODAL_OPTIONS);
+    const modalRef = this.modal.open(ActionBillDetailComponent, DEFAULT_MODAL_OPTIONS);
     modalRef.componentInstance.action = false;
-    modalRef.componentInstance.billOrder = item;
+    modalRef.componentInstance.billDetail = item;
     modalRef.result.then(value => {
         if (value === 'success') {
           this.processSearchData();
@@ -63,15 +63,15 @@ export class BillOrderComponent implements OnInit {
 
   processSearchData(event?: any) {
     this.spinner.show();
-    this.service.getListBillOrder().subscribe(res => {
+    this.service.getListBillDetail().subscribe(res => {
       this.spinner.hide();
-      this.listBillOrder = res.data;
+      this.listBillDetail = res.data;
       this.total = res.recordsTotal;
     });
   }
 
   processSave() {
-    const modalRef = this.modal.open(ActionBillOrderComponent, DEFAULT_MODAL_OPTIONS);
+    const modalRef = this.modal.open(ActionBillDetailComponent, DEFAULT_MODAL_OPTIONS);
     modalRef.componentInstance.action = true;
     modalRef.result.then(value => {
       if (value === 'success') {
@@ -83,8 +83,8 @@ export class BillOrderComponent implements OnInit {
   }
 
   processDelete(id: any) {
-    const modalRef = this.modal.open(DeleteBillOrderComponent, DEFAULT_MODAL_OPTIONS);
-    modalRef.componentInstance.idBillOrder = id;
+    const modalRef = this.modal.open(DeleteBillDetailComponent, DEFAULT_MODAL_OPTIONS);
+    modalRef.componentInstance.idBillDetail = id;
     modalRef.result.then(value => {
       if (value === 'success') {
         this.processSearchData();

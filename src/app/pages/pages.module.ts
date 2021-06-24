@@ -9,15 +9,18 @@ import {MiscellaneousModule} from './miscellaneous/miscellaneous.module';
 import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {MessageService} from 'primeng/api';
 import {ProductComponent} from './product/product.component';
 import {PortletModule} from '../shares/portlet/portlet.module';
 import {TooltipModule} from 'primeng/tooltip';
 import {TableModule} from 'primeng/table';
 import {ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
-import { CategoryComponent } from './category/category.component';
-import { BillOrderComponent } from './bill-order/bill-order.component';
+import { ActionBillDetailComponent } from './bill-detail/action-bill-detail/action-bill-detail.component';
+import { DeleteBillDetailComponent } from './bill-detail/delete-bill-detail/delete-bill-detail.component';
+import { BillDetailComponent } from './bill-detail/bill-detail.component';
+import {CalendarModule} from 'primeng/calendar';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {DropdownModule} from 'primeng/dropdown';
 
 
 // AOT compilation support
@@ -44,10 +47,16 @@ export function httpTranslateLoader(http: HttpClient) {
     TableModule,
     ReactiveFormsModule,
     InputTextModule,
+    CalendarModule,
+    NgxSpinnerModule,
+    DropdownModule,
   ],
   declarations: [
     PagesComponent,
     ProductComponent,
+    ActionBillDetailComponent,
+    DeleteBillDetailComponent,
+    BillDetailComponent,
     // StoreComponent,
   ],
 })

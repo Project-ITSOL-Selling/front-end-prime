@@ -9,9 +9,9 @@ import {
   NbResetPasswordComponent,
 } from '@nebular/auth';
 import {AuthGuard} from './@core/services/_service/auth/auth.guard';
-import { ListSupplierComponent } from './supplier/component/ListSupplier/ListSupplier.component';
-import { EditSupplierComponent } from './supplier/component/Edit-Supplier/Edit-Supplier.component';
-import { CreateSupplierComponent } from './supplier/component/create-supplier/create-supplier.component';
+import { ListSupplierComponent } from './pages/supplier/ListSupplier/ListSupplier.component';
+import { EditSupplierComponent } from './pages/supplier/Edit-Supplier/Edit-Supplier.component';
+import { CreateSupplierComponent } from './pages/supplier/create-supplier/create-supplier.component';
 import { ListCustomerComponent } from './customer/component/listCustomer/listCustomer.component';
 import { CreateCustomerComponent } from './customer/component/create-customer/create-customer.component';
 import { UpdateCustomerComponent } from './customer/component/update-customer/update-customer.component';

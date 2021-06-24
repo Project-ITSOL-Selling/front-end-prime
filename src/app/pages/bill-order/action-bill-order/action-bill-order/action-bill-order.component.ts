@@ -37,6 +37,7 @@ export class ActionBillOrderComponent implements OnInit {
         price: ['', Validators.required],
         quantity: ['', Validators.required],
         createdDate: ['', Validators.required],
+        codeBill: ['', Validators.required],
         description: [''],
 
       });
@@ -45,6 +46,8 @@ export class ActionBillOrderComponent implements OnInit {
         id: [this.billOrder.id],
         price: [this.billOrder.price, Validators.required],
         quantity: [this.billOrder.quantity, Validators.required],
+        codeBill: [this.billOrder.codeBill, Validators.required],
+        createdDate: [this.billOrder.createdDate, Validators.required],
         description: [this.billOrder.description],
       });
     }

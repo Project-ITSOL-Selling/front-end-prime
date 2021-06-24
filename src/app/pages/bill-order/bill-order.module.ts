@@ -11,7 +11,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ActionBillOrderComponent} from './action-bill-order/action-bill-order/action-bill-order.component';
 import {DeleteBillOrderComponent} from './delete-bill-order/delete-bill-order.component';
 import {CalendarModule} from 'primeng/calendar';
-import {NgxSpinnerModule} from "ngx-spinner";
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 const routes: Routes = [

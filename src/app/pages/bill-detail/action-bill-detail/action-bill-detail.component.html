@@ -15,61 +15,63 @@
 <div class="modal-body">
   <form [formGroup]="form">
     <div class="p-fluid p-grid">
-      <div class="p-field p-md-6" style="padding: 1rem 0.5rem  !important;">
-              <span class="p-float-label">
-                <input id="price"
-                       type="number"
-                       formControlName="price"
-                       [ngClass]="isSubmitted && f['price'].errors?.required ? 'ng-dirty ng-invalid': ''"
-                       class="form-control"
-                       pInputText>
-                <label for="price" class="required">Giá hóa đơn</label>
+      <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label p-input-icon-right">
+<!--                <i [hidden]="isLoadCategory" class="pi pi-spin pi-spinner"></i>-->
+                <p-dropdown
+                  id="product"
+                  formControlName="idProduct"
+                  [styleClass]="'p-dropdown-custom'"
+                  [ngClass]="isSubmitted && f['idProduct'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                  [autoDisplayFirst]="false"
+                  [options]="lstProduct"
+                  [optionValue]="'id'"
+                  optionLabel="name">
+                </p-dropdown>
+                <label for="product" class="required">Tên sản phẩm</label>
               </span>
-        <!--        <span class="p-float-label">-->
-        <!--            <input type="text" id="inputtext" pInputText >-->
-        <!--            <label for="inputtext">InputText</label>-->
-        <!--        </span>-->
-        <small *ngIf="isSubmitted && f['price'].errors?.required"
+        <small *ngIf="isSubmitted && f['idCategory'].errors?.required"
                class="p-error text-error p-pl-1">
-          Giá của hóa đơn là bắt buộc !
+          Tên sản phẩm là bắt buộc !
         </small>
       </div>
-      <div class="p-field p-md-6" style="padding: 1rem 0.5rem  !important;">
-              <span class="p-float-label">
-                <input id="quantity"
-                       type="number"
-                       formControlName="quantity"
-                       [ngClass]="isSubmitted && f['quantity'].errors?.required ? 'ng-dirty ng-invalid': ''"
-                       class="form-control"
-                       pInputText>
-                <label for="price" class="required">Số lượng</label>
+      <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label p-input-icon-right">
+<!--                <i [hidden]="isLoadCategory" class="pi pi-spin pi-spinner"></i>-->
+                <p-dropdown
+                  id="billOrder"
+                  formControlName="idBillOrder"
+                  [styleClass]="'p-dropdown-custom'"
+                  [ngClass]="isSubmitted && f['idBillOrder'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                  [autoDisplayFirst]="false"
+                  [options]="lstBillOrder"
+                  [optionValue]="'id'"
+                  optionLabel="codeBill">
+                </p-dropdown>
+                <label for="product" class="required">Mã hóa đơn</label>
               </span>
-        <!--        <span class="p-float-label">-->
-        <!--            <input type="text" id="inputtext" pInputText >-->
-        <!--            <label for="inputtext">InputText</label>-->
-        <!--        </span>-->
-        <small *ngIf="isSubmitted && f['quantity'].errors?.required"
-               class="p-error text-error p-pl-1">
-          Số lượng là bắt buộc !
-        </small>
-      </div>
-      <div class="p-field p-md-6" style="padding: 1rem 0.5rem  !important;">
-              <span class="p-float-label">
-                <input id="codeBill"
-                       type="text"
-                       formControlName="codeBill"
-                       [ngClass]="isSubmitted && f['codeBill'].errors?.required ? 'ng-dirty ng-invalid': ''"
-                       class="form-control"
-                       pInputText>
-                <label for="price" class="required">Mã hóa đơn</label>
-              </span>
-        <!--        <span class="p-float-label">-->
-        <!--            <input type="text" id="inputtext" pInputText >-->
-        <!--            <label for="inputtext">InputText</label>-->
-        <!--        </span>-->
-        <small *ngIf="isSubmitted && f['codeBill'].errors?.required"
+        <small *ngIf="isSubmitted && f['idCategory'].errors?.required"
                class="p-error text-error p-pl-1">
           Mã hóa đơn là bắt buộc !
+        </small>
+      </div>
+      <div class="p-field p-md-6" style="padding: 1rem 0.5rem  !important;">
+              <span class="p-float-label">
+                <input id="totalMoney"
+                       type="number"
+                       formControlName="totalMoney"
+                       [ngClass]="isSubmitted && f['totalMoney'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                       class="form-control"
+                       pInputText>
+                <label for="totalMoney" class="required">Tổng tiền</label>
+              </span>
+        <!--        <span class="p-float-label">-->
+        <!--            <input type="text" id="inputtext" pInputText >-->
+        <!--            <label for="inputtext">InputText</label>-->
+        <!--        </span>-->
+        <small *ngIf="isSubmitted && f['totalMoney'].errors?.required"
+               class="p-error text-error p-pl-1">
+          Tổng tiền là bắt buộc !
         </small>
       </div>
       <div class="p-md-6" style="padding: 1rem 0.5rem !important;">

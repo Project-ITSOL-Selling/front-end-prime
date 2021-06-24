@@ -37,9 +37,9 @@
     </ng-container>
   </kt-portlet-header>
   <kt-portlet-body>
-    <p-table #ptable [value]="listBillOrder"
-             [paginator]="listBillOrder.length"
-             [rows]="7"
+    <p-table #ptable [value]="listBillDetail"
+             [paginator]="listBillDetail.length"
+             [rows]="6"
              [totalRecords]="total"
              (onLazyLoad)="processSearchData()"
              dataKey="id"
@@ -50,7 +50,6 @@
         <colgroup>
           <!--          <col class="size-1">-->
           <col class="size-2">
-          <col class="size-3">
           <col class="size-3">
           <col class="size-3">
           <col class="size-3">
@@ -70,16 +69,13 @@
             Action
           </th>
           <th class="text-center">
+            Name Product
+          </th>
+          <th class="text-center">
             Code Bill
           </th>
           <th class="text-center">
-            Price
-          </th>
-          <th class="text-center">
-            Quantity
-          </th>
-          <th class="text-center">
-            Description
+            Total Money
           </th>
           <th class="text-center">
             Created Date
@@ -103,16 +99,15 @@
                pTooltip="{{'Xóa' }}">
             </i>
           </td>
-          <td class="text-center">{{item.codeBill}}</td>
-          <td class="text-center">{{item.price}}</td>
-          <td class="text-center">{{item.quantity}}</td>
-          <td class="text-center">{{item.description}}</td>
+          <td class="text-center">{{item.idProduct}}</td>
+          <td class="text-center">{{item.idBillOrder}}</td>
+          <td class="text-center">{{item.totalMoney}}</td>
           <td class="text-center">{{item.createdDate}}</td>
 
       </ng-template>
       <ng-template pTemplate="emptymessage">
         <tr class="empty_message">
-          <td [attr.colspan]="7" [innerHTML]="'message.noRecords' ">
+          <td [attr.colspan]="6" [innerHTML]="'message.noRecords' ">
           </td>
         </tr>
       </ng-template>

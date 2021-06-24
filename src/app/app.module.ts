@@ -32,12 +32,12 @@ import {ToastrModule} from 'ngx-toastr';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { ListSupplierComponent } from './supplier/component/ListSupplier/ListSupplier.component';
+import { ListSupplierComponent } from './pages/supplier/ListSupplier/ListSupplier.component';
 import { ListCustomerComponent } from './customer/component/listCustomer/listCustomer.component';
-import { CreateSupplierComponent } from './supplier/component/create-supplier/create-supplier.component';
+import { CreateSupplierComponent } from './pages/supplier/create-supplier/create-supplier.component';
 import { CreateCustomerComponent } from './customer/component/create-customer/create-customer.component';
 import { UpdateCustomerComponent } from './customer/component/update-customer/update-customer.component';
-import { EditSupplierComponent } from './supplier/component/Edit-Supplier/Edit-Supplier.component';
+import { EditSupplierComponent } from './pages/supplier/Edit-Supplier/Edit-Supplier.component';
 
 const configToast: any = {
   timeOut: 2000,

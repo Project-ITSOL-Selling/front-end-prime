@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SupplierService } from '../../service/supplier.service';
-import { Supplier } from '../../Supplier';
+import { SupplierService } from '../service/supplier.service';
+import { Supplier } from '../Supplier';
 import { error } from '@angular/compiler/src/util';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditSupplierComponent } from '../Edit-Supplier/Edit-Supplier.component';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class ListSupplierComponent implements OnInit {
   supplier!:Supplier[];
   name='';
-  
+
   constructor(
     private service : SupplierService,
     // private modalService: NgbModal
@@ -31,7 +31,7 @@ export class ListSupplierComponent implements OnInit {
         data => {
           this.supplier = data;
           console.log(data);
-                 
+
         },
         error => {
           console.log(error);
@@ -48,13 +48,13 @@ export class ListSupplierComponent implements OnInit {
   //       console.log(data);
   //     },
   //     error=>{
-  //       console.log(error);       
+  //       console.log(error);
   //     }
   //   )
   // }
   // onEdit(id:number){
   //   this.modal.open(EditSupplierComponent);
-  //   console.log(id);  
+  //   console.log(id);
   // }
 
 }

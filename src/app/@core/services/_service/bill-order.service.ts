@@ -14,7 +14,7 @@ export class BillOrderService extends BasicService {
   constructor(
     public http: HttpClient,
   ) {
-    super('baseUrl', 'categories', http);
+    super('baseUrl', 'bill_order', http);
   }
 
   getListBillOrder(): Observable<any> {

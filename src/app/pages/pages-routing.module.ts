@@ -34,6 +34,16 @@ const routes: Routes = [{
         .then(m => m.BillOrderModule),
     },
     {
+      path: 'bill_detail',
+      loadChildren: () => import('./bill-detail/bill-detail.module')
+        .then(m => m.BillDetailModule),
+    },
+    {
+      path: 'supplier',
+      loadChildren: () => import('./supplier/supplier.module')
+        .then(m => m.SupplierModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
