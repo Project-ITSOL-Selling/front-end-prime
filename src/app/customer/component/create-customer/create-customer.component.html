@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Create Customer</h1>
+  <form autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.id.errors}">
+      <label for="name">Id hide:</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <span *ngIf="isSubmit && f.id.errors" class="help-block"></span>
+    </div> -->
+  
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.name.errors }">
+      <label for="name">Customer Name:</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <span *ngIf="isSubmit && f.name.errors" class="help-block">Name is required!</span>
+    </div>
+  
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.address.errors }">
+      <label for="name">Customer address:</label>
+      <input type="text" class="form-control" id="address" formControlName="address">
+      <span *ngIf="isSubmit && f.address.errors" class="help-block">Address is required!</span>
+    </div>
+    
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.dob.errors }">
+      <label for="name">Customer DOB:</label>
+      <input  type="date" class="form-control" id="dob" formControlName="dob">
+      <span *ngIf="isSubmit && f.dob.errors" class="help-block">dob is required!</span>
+    </div>
+  
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.email.errors }">
+      <label for="name">Customer email:</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <span *ngIf="isSubmit && f.email.errors" class="help-block">email is required!</span>
+    </div>
+  
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.gender.errors }">
+      <label for="name">Customer gender:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"  type="radio" formControlName="gender" name="gender" id="flexRadioDefault1" [value]="true" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          Nam
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="flexRadioDefault2" [value]="false">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Nữ
+        </label>
+      </div>
+    </div>
+  
+    <div class="form-group" [ngClass]="{ 'has-error': isSubmit && f.phoneNumber.errors }">
+      <label for="name">Customer PhoneNumber:</label>
+      <input type="number" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+      <span *ngIf="isSubmit && f.phoneNumber.errors" class="help-block">phoneNumber is required!</span>
+    </div>
+  
+    <button type="submit" class="btn btn-success" > Create</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+  </form>
+</div>
