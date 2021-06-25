@@ -23,12 +23,23 @@
                        [ngClass]="isSubmitted && f['name'].errors?.required ? 'ng-dirty ng-invalid': ''"
                        class="form-control"
                        pInputText>
-                <label for="name" class="required">Tên Nhà cung cấp</label>
+                <label for="name" class="required">Tên nhà cung cấp</label>
               </span>
         <small *ngIf="isSubmitted && f['name'].errors?.required"
                class="p-error text-error p-pl-1">
           Tên nhà cung cấp là bắt buộc !
         </small>
+      </div>
+      <div class="p-field p-md-6" style="padding: 1rem 0.5rem  !important;">
+              <span class="p-float-label">
+                <input id="logo"
+                       type="text"
+                       formControlName="logo"
+                       [ngClass]="isSubmitted && f['logo'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                       class="form-control"
+                       pInputText>
+                <label for="name" class="required">Image</label>
+              </span>
       </div>
       <div class="p-field p-md-6" style="padding: 1rem 0.5rem  !important;">
               <span class="p-float-label">

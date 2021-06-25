@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-listCustomer',
   templateUrl: './listCustomer.component.html',
-  styleUrls: ['./listCustomer.component.css']
+  styleUrls: ['./listCustomer.component.css'],
 })
 export class ListCustomerComponent implements OnInit {
   // submitted=false;
@@ -45,8 +45,8 @@ export class ListCustomerComponent implements OnInit {
         },
         error => {
           console.log(error);
-        }
-      )
+        },
+      );
   }
 
   addNewcustomer() {
@@ -55,6 +55,22 @@ export class ListCustomerComponent implements OnInit {
 
   openUpdateCustomer(id: number) {
     this.router.navigate(['/pages/customer/update-customer', id]);
+  }
+
+  deleteuser(id: number) {
+    if (confirm('Are you want to delete ' + id)) {
+      this.service.deleteCustomer(id)
+        .subscribe(
+          data => {
+            alert('Delete Success!');
+            this.ngOnInit();
+          },
+          error => {
+            alert('Delete Error!');
+          },
+        );
+    }
+
   }
 
   // onSubmit(){

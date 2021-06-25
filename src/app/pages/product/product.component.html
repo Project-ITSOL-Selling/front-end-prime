@@ -2,10 +2,10 @@
   <kt-portlet-header [icon]="'pi pi-search'"
                      [title]="'title.search' | translate ">
   </kt-portlet-header>
-    <kt-portlet-body>
-      <form [formGroup]="formSearch">
-        <div class="p-fluid p-grid">
-          <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
+  <kt-portlet-body>
+    <form [formGroup]="formSearch">
+      <div class="p-fluid p-grid">
+        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
                 <span class="p-float-label">
                   <input id="name"
                          type="text"
@@ -14,13 +14,14 @@
                          pInputText>
                   <label for="name">Tên sản phẩm</label>
                 </span>
-          </div>
-
         </div>
-      </form>
-      <button type="button" class="btn btn-info"
-              (click)="processSearch()">Tìm kiếm</button>
-    </kt-portlet-body>
+
+      </div>
+    </form>
+    <button type="button" class="btn btn-info"
+            (click)="processSearch()">Tìm kiếm
+    </button>
+  </kt-portlet-body>
 </kt-portlet>
 <kt-portlet>
   <kt-portlet-header [icon]="'pi pi-align-justify'"
@@ -107,7 +108,7 @@
             </i>
           </td>
           <td class="text-center">{{item.name}}</td>
-          <td class="text-center">{{item.image}}</td>
+          <td class="text-center"><img [src]="item.image" style="width: 100px" alt=""></td>
           <td class="text-center">{{item.nameCategory}}</td>
           <td class="text-center">{{item.idSupplier}}</td>
           <td class="text-center">{{item.price}}</td>

@@ -14,6 +14,7 @@ export class ActionSupplierComponent implements OnInit {
 
   @Input() action: any;
   @Input() supplier: any;
+  @Input() idEdit: any;
   isSubmitted: boolean = false;
   form: FormGroup;
 
@@ -40,15 +41,16 @@ export class ActionSupplierComponent implements OnInit {
       });
     } else {
       this.form = this.fb.group({
-        id: [this.supplier.id],
         name: [this.supplier.name, Validators.required],
         description: [this.supplier.description],
+        logo: [this.supplier.logo],
         address: [this.supplier.address],
       });
     }
   }
 
   processSave() {
+    console.log(this.idEdit);
     this.isSubmitted = true;
     if (this.form.valid) {
       this.spinner.show();
@@ -67,4 +69,5 @@ export class ActionSupplierComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
+
 }

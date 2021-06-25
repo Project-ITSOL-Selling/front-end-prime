@@ -102,7 +102,7 @@
           <td class="text-center">{{item.idProduct}}</td>
           <td class="text-center">{{item.idBillOrder}}</td>
           <td class="text-center">{{item.totalMoney}}</td>
-          <td class="text-center">{{item.createdDate}}</td>
+          <td class="text-center">{{item.createdDate | date:'yyyy-MM-dd'}}</td>
 
       </ng-template>
       <ng-template pTemplate="emptymessage">

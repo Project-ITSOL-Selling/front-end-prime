@@ -85,7 +85,7 @@
               </span>
         <small *ngIf="isSubmitted && f['idCategory'].errors?.required"
                class="p-error text-error p-pl-1">
-          Tên cửa hàng là bắt buộc !
+          Tên loại sản phẩm là bắt buộc !
         </small>
       </div>
       <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
@@ -101,11 +101,11 @@
                   [optionValue]="'id'"
                   optionLabel="name">
                 </p-dropdown>
-                <label for="store" class="required">Tên cửa hàng</label>
+                <label for="store" class="required">Tên nhà cung cấp</label>
               </span>
-        <small *ngIf="isSubmitted && f['idCategory'].errors?.required"
+        <small *ngIf="isSubmitted && f['idSupplier'].errors?.required"
                class="p-error text-error p-pl-1">
-          Tên cửa hàng là bắt buộc !
+          Tên nhà cung cấp là bắt buộc !
         </small>
       </div>
       <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
@@ -131,7 +131,7 @@
                        class="form-control"
                        formControlName="image"
                        pInputText>
-                <label for="description">Thông tin sản phẩm</label>
+                <label for="description">Ảnh sản phẩm</label>
               </span>
       </div>
     </div>

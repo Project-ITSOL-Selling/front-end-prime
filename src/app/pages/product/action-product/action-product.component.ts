@@ -4,10 +4,9 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {TranslateService} from '@ngx-translate/core';
-import {CityService} from '../../../@core/services/_service/city.service';
 import {ProductService} from '../../../@core/services/_service/product.service';
-import {StoreService} from '../../../@core/services/_service/store.service';
 import {CategoriesService} from '../../../@core/services/_service/categories.service';
+import {SupplierService} from '../../../@core/services/_service/supplier.service';
 
 @Component({
   selector: 'ngx-action-product',
@@ -43,6 +42,7 @@ export class ActionProductComponent implements OnInit {
     private translate: TranslateService,
     private service: ProductService,
     private categoryService: CategoriesService,
+    private supplierService: SupplierService,
   ) {
   }
 
@@ -55,7 +55,7 @@ export class ActionProductComponent implements OnInit {
     if (this.action) {
       this.form = this.fb.group({
         name: ['', Validators.required],
-        image: [''],
+        image: ['../../../assets/images/supplier/cty-a.jpg  '],
         idCategory: ['', Validators.required],
         idSupplier: ['', Validators.required],
         price: ['', Validators.required],
@@ -79,6 +79,12 @@ export class ActionProductComponent implements OnInit {
       this.lstCategory = res.data;
     });
   }
+
+  // getListSupplier() {
+  //   this.supplierService.getListSupplier().subscribe(res => {
+  //     this.lstSupplier = res.data;
+  //   });
+  // }
 
   close() {
     this.modal.close();

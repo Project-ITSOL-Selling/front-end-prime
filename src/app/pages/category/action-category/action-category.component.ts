@@ -37,7 +37,7 @@ export class ActionCategoryComponent implements OnInit {
     if (this.action) {
       this.form = this.fb.group({
         name: ['', Validators.required],
-        image: [''],
+        image: ['../../../assets/images/supplier/cty-a.jpg'],
         description: [''],
 
       });

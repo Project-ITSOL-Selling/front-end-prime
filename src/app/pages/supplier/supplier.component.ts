@@ -6,8 +6,7 @@ import {ProductService} from '../../@core/services/_service/product.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SupplierService} from '../../@core/services/_service/supplier.service';
-import {DeleteProductComponent} from "../product/delete-product/delete-product.component";
-import {DeleteSupplierComponent} from "./delete-supplier/delete-supplier.component";
+import {DeleteSupplierComponent} from './delete-supplier/delete-supplier.component';
 
 @Component({
   selector: 'ngx-supplier',
@@ -43,8 +42,17 @@ export class SupplierComponent implements OnInit {
     });
   }
 
-  processEdit(item: any) {
+  processEdit(data) {
+    const modalRef = this.modal.open(ActionSupplierComponent, DEFAULT_MODAL_OPTIONS);
+    modalRef.componentInstance.action = false;
+    modalRef.componentInstance.idEdit = data.id;
+    modalRef.result.then(value => {
+      if (value === 'success') {
+        this.processSearchData();
+      }
+    }, (reason) => {
 
+    });
   }
 
   processDelete(id) {
